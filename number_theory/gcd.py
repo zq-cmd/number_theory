@@ -1,5 +1,6 @@
 import random
 
+
 def gcd(x: int, y: int) -> int:
     if x < 0:
         x = -x
@@ -27,8 +28,10 @@ def gcdn(x: int, y: int, tx: any = None, ty: any = None,
     if tx == 0:
         return (x, y, ty, tya, tyb)
     tmp = ty // tx
-    return gcdn(x, y, ty - tmp * tx, tx, tya - tmp * txa, tyb - tmp * txb, txa, txb)
+    return gcdn(x, y, ty - tmp * tx, tx, tya - tmp * txa, tyb - tmp * txb, txa,
+                txb)
 
-def random_gcdn(max_seed :int = 1000) -> (int, int, int, int, int):
+
+def random_gcdn(max_seed: int = 1000) -> (int, int, int, int, int):
     x, y = random.randint(1, 1000), random.randint(1, 1000)
     return gcdn(x, y)

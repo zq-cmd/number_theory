@@ -1,8 +1,8 @@
 from .gcd import gcdn
 from .maxpow2 import maxpow2
 
-class mod:
 
+class mod:
     def __init__(self, mod, num):
         self.mod = mod
         self.num = num % self.mod
@@ -80,10 +80,10 @@ class mod:
         if other == 0:
             return mod(self.mod, 1)
         if other < 0:
-            return (mod(self.mod, 1) / self) ** (-other)
+            return (mod(self.mod, 1) / self)**(-other)
         if other == 1:
             return self
         if other == 2:
             return self * self
         tmp = maxpow2(other)
-        return (self ** (2 ** (tmp - 1))) ** 2 * self ** (other - 2 ** tmp)
+        return (self**(2**(tmp - 1)))**2 * self**(other - 2**tmp)
