@@ -59,6 +59,7 @@ class mod:
             return mod(self.mod, self.num * other.num)
         raise ValueError
 
+    # gcd(other.num, other.mod) solutions, chose the first
     def __truediv__(self, other):
         if isinstance(other, int):
             tmp = other % self.num
@@ -69,9 +70,9 @@ class mod:
         if tmp == 0:
             raise ZeroDivisionError
         res = gcdn(tmp, self.mod)
-        if res[2] != 1:
+        if self.num % res[2] != 0:
             raise ZeroDivisionError
-        return self * mod(self.mod, res[3])
+        return mod(self.mod, self.num // res[2]) * mod(self.mod, res[3])
 
     def __pow__(self, other):
         if not isinstance(other, int):
