@@ -75,6 +75,8 @@ class mod:
         return mod(self.mod, self.num // res[2]) * mod(self.mod, res[3])
 
     def __pow__(self, other):
+        if isinstance(other, mod):
+            other = other.num
         if not isinstance(other, int):
             raise ValueError
         if other == 0:
